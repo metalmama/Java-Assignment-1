@@ -18,7 +18,7 @@ while (!isOK) {
             isOK =true;
         } catch (Exception e) {
             System.out.println("That is not quite right - please try again");
-            
+            scan.next();
         }
     }
     isOK = false;             // Number format checking has now been included here//
@@ -78,22 +78,25 @@ switch(Op)
     break;
 }
 System.out.println("The answer is "+Ans);
+isOK = false;
+while(!isOK){
+        System.out.println("Do you want to perform another calculation? Y/N?");
+        String input = scan.next();
 
-System.out.println("Do you want to perform another calculation? Y/N?");
-String input = scan.next();
+        if (input.toLowerCase().equals("y")){
 
-if (input.toLowerCase().equals("y")){
-
-    System.out.println("Entered Y");
-}   else if (input.toLowerCase().equals("N")){
-    isRunning = false;
-}   else {
-    System.out.println("Please enter Y or N!");
-}
-}
-
-     
+            System.out.println("Entered Y");
+            isOK = true;
+        }   else if (input.toLowerCase().equals("n")){
+            isRunning = false;
+            isOK = true;
+        }   else {
+            System.out.println("Please enter Y or N!");
         }
+        }
+    }
+    
+}
 
 
     public static double addition(double x, double y) {
